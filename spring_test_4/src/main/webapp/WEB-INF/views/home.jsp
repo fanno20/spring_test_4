@@ -13,5 +13,6 @@
 
 <P>  The time on the server is ${serverTime}. </P>
 <a href="/test4/member/loginF.me">LOGIN</a><br>
+<a href="/test4/member/joinF.me">JOIN</a><br>
 </body>
 </html>

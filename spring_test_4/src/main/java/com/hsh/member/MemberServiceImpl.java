@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class MemberServiceImpl implements MemberService {
 
 	@Inject
-	MemberDAOImpl memberDAOImpl;
+	private MemberDAOImpl memberDAOImpl;
 	
 	@Override
 	public void memberLogin(MemberDTO memberDTO) {
