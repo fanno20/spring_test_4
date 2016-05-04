@@ -39,7 +39,7 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		try {
-			System.out.println(dataSource.getConnection());
+			/*System.out.println(dataSource.getConnection());*/
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

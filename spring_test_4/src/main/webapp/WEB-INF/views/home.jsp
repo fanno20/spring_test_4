@@ -12,7 +12,13 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-<a href="/test4/member/loginF.me">LOGIN</a><br>
-<a href="/test4/member/joinF.me">JOIN</a><br>
+<p>${member.id}</p>
+<c:if test="${member != null}">
+	<a href="/test4/member/logout.me">LOGOUT</a>
+</c:if>
+<c:if test="${member == null}">
+	<a href="/test4/member/loginF.me">LOGIN</a><br>
+	<a href="/test4/member/joinF.me">회원가입</a><br>
+</c:if>
 </body>
 </html>

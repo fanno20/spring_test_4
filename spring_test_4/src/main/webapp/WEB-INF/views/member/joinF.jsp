@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h2>JOIN PAGE</h2>
+<form action="./join.me" method="post">
+	ID : <input type="text" name="id"><br>
+	PW : <input type="password" name="pw"><br>
+	NAME : <input type="password" name="name"><br>
+	<input type="submit" value="JOIN">
+</form>
 </body>
 </html>

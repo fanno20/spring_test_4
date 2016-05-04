@@ -2,6 +2,8 @@ package com.hsh.test4;
 
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +22,8 @@ public class MemberController {
 	public void loginF(){}
 	
 	@RequestMapping("/login.me")
-	public String login(MemberDTO memberDTO){ // < 안되면 @ModelAttribute 붙여서
-		memberServiceImpl.memberLogin(memberDTO);
+	public String login(MemberDTO memberDTO,HttpServletRequest request){ // < 안되면 @ModelAttribute 붙여서
+		memberServiceImpl.memberLogin(memberDTO,request);
 		return "redirect:/";
 	}
 	
@@ -29,10 +31,17 @@ public class MemberController {
 	public void joinF(){}
 
 	@RequestMapping("/join.me")
-	public void join(MemberDTO memberDTO){
+	public String join(MemberDTO memberDTO){
 		memberServiceImpl.memberJoin(memberDTO);
+		return "redirect:/";
 	}
 	
+	@RequestMapping("/logout.me")
+	public String logout(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		session.invalidate();
+		return "redirect:/";
+	}
 }
 
 
