@@ -8,7 +8,10 @@ public interface MemberService {
 	public void memberJoin(MemberDTO memberDTO);
 	//로그인...
 	public void memberLogin(MemberDTO memberDTO,HttpServletRequest request);
-	
+	//정보수정
+	public void memberUpdate(MemberDTO memberDTO,HttpServletRequest request);
+	//회원탈퇴
+	public void memberDelete(HttpServletRequest request);
 }
 
 

@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h2>UPDATE PAGE</h2>
+<form action="./update.me" method="post">
+	ID : <input type="text" name="id" value="${member.id}" readonly="readonly"><br>
+	PW : <input type="password" name="pw"><br>
+	NAME : <input type="password" name="name"><br>
+	<input type="submit" value="정보수정">
+</form>
 </body>
 </html>

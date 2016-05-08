@@ -14,7 +14,9 @@
 <P>  The time on the server is ${serverTime}. </P>
 <p>${member.id}</p>
 <c:if test="${member != null}">
-	<a href="/test4/member/logout.me">LOGOUT</a>
+	<a href="/test4/member/logout.me">LOGOUT</a><br>
+	<a href="/test4/member/updateF.me">정보수정</a>
+	<a href="/test4/member/delete.me">회원탈퇴</a>
 </c:if>
 <c:if test="${member == null}">
 	<a href="/test4/member/loginF.me">LOGIN</a><br>

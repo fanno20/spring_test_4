@@ -36,10 +36,25 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping("/updateF.me")
+	public void updateF(){}
+	
+	@RequestMapping("/update.me")
+	public String update(MemberDTO memberDTO, HttpServletRequest request){
+		memberServiceImpl.memberUpdate(memberDTO, request);
+		return "redirect:/";
+	}
+	
 	@RequestMapping("/logout.me")
 	public String logout(HttpServletRequest request){
 		HttpSession session = request.getSession();
 		session.invalidate();
+		return "redirect:/";
+	}
+	
+	@RequestMapping("delete.me")
+	public String delete(HttpServletRequest request){
+		memberServiceImpl.memberDelete(request);
 		return "redirect:/";
 	}
 }

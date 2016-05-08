@@ -32,7 +32,7 @@ public class MemberDAOImpl implements MemberDAO{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
-			
+			//DB연결 .. close
 		}
 		return result;
 	}
@@ -54,9 +54,51 @@ public class MemberDAOImpl implements MemberDAO{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
-			
+			//DB연결 .. close
 		}
 		
+		return memberDTO;
+	}
+
+	@Override
+	//회원정보수정
+	public MemberDTO updte(MemberDTO memberDTO) {
+		try {
+			Connection  con = dataSource.getConnection();
+			String sql = "update member2 set value(?,?,?)";
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, memberDTO.getId());
+			st.setString(2, memberDTO.getName());
+			st.setString(3, memberDTO.getPw());
+			int result = st.executeUpdate();
+			if(result <= 0){
+				memberDTO = null;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			//DB연결 .. close
+		}
+		return memberDTO;
+	}
+
+	//회원탈퇴
+	@Override
+	public MemberDTO delete(MemberDTO memberDTO) {
+		try {
+			Connection con = dataSource.getConnection();
+			String sql = "delete member2 where id=?";
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, memberDTO.getId());
+			int result = st.executeUpdate();
+			if(result > 0){
+				memberDTO = null;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			//DB연결 .. close
+		}
 		return memberDTO;
 	}
 
