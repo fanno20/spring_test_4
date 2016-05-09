@@ -65,11 +65,11 @@ public class MemberDAOImpl implements MemberDAO{
 	public MemberDTO updte(MemberDTO memberDTO) {
 		try {
 			Connection  con = dataSource.getConnection();
-			String sql = "update member2 set value(?,?,?)";
+			String sql = "update member2 set pw=?,name=? where id=?";
 			PreparedStatement st = con.prepareStatement(sql);
-			st.setString(1, memberDTO.getId());
+			st.setString(1, memberDTO.getPw());
 			st.setString(2, memberDTO.getName());
-			st.setString(3, memberDTO.getPw());
+			st.setString(3, memberDTO.getId());
 			int result = st.executeUpdate();
 			if(result <= 0){
 				memberDTO = null;
